@@ -4,16 +4,6 @@ import java.util.Scanner;
 
 public class Colour {
 
-//    enum Colours {
-//        R,
-//        Y,
-//        G,
-//        W,
-//        V,
-//        //P,
-//        B;
-//    }
-
     public static String getLetter() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("What's the first letter?");
@@ -32,6 +22,28 @@ public class Colour {
         }
     }
 
+    public static String guessB(){
+        String secondLetter = Colour.getSecondLetter();
+        while (true) {
+            switch (secondLetter) {
+                case "R": return "brown";
+                case "L": return Colour.guessBL();
+                default: return "I don't know";
+            }
+        }
+    }
+
+    public static String guessBL(){
+        String thirdLetter = Colour.getThirdLetter();
+        while (true) {
+            switch (thirdLetter) {
+                case "A": return "black";
+                case "U": return "blue";
+                default: return "I don't know";
+            }
+        }
+    }
+
     public static String getSecondLetter() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("What's the second letter?");
@@ -39,6 +51,12 @@ public class Colour {
         return secondLetter;
     }
 
+    public static String getThirdLetter() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("What's the third letter?");
+        String thirdLetter = scanner.next().trim().toUpperCase();
+        return thirdLetter;
+    }
 
     public static String guessColour(){
         String letter = Colour.getLetter();
@@ -50,7 +68,7 @@ public class Colour {
                 case "W": return "white";
                 case "V": return "violet";
                 case "P": return Colour.guessP();
-                case "B": return "blue";
+                case "B": return Colour.guessB();
                 default: return "I don't know";
             }
         }
