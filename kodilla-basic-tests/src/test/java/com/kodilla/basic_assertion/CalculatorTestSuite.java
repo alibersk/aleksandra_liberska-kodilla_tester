@@ -24,11 +24,62 @@ public class CalculatorTestSuite {
     }
 
     @Test
-    public void testExpon() {
+    public void testExponPositiveNumber() {
         Calculator calculator = new Calculator();
         double a = 5;
         double b = 8;
+        double delta = 0.0001;
         double exponResult = calculator.expon(a, b);
-        assertEquals(390625, exponResult);
+        assertEquals(390625, exponResult, delta);
+    }
+
+    @Test
+    public void testExponFraction() {
+        Calculator calculator = new Calculator();
+        double a = 1.2;
+        double b = 2.2;
+        double delta = 0.0001;
+        double exponResult = calculator.expon(a, b);
+        assertEquals(1.49347, exponResult, delta);
+    }
+
+    @Test
+    public void testExponBasisZero() {
+        Calculator calculator = new Calculator();
+        double a = 0;
+        double b = 8;
+        double delta = 0.0001;
+        double exponResult = calculator.expon(a, b);
+        assertEquals(0, exponResult, delta);
+    }
+
+    @Test
+    public void testExponExponentZero() {
+        Calculator calculator = new Calculator();
+        double a = 5;
+        double b = 0;
+        double delta = 0.0001;
+        double exponResult = calculator.expon(a, b);
+        assertEquals(1, exponResult, delta);
+    }
+
+    @Test
+    public void testExponBasisNegative() {
+        Calculator calculator = new Calculator();
+        double a = -5;
+        double b = 3;
+        double delta = 0.0001;
+        double exponResult = calculator.expon(a, b);
+        assertEquals(-125, exponResult, delta);
+    }
+
+    @Test
+    public void testExponExponentNegative() {
+        Calculator calculator = new Calculator();
+        double a = 5;
+        double b = -3;
+        double delta = 0.0001;
+        double exponResult = calculator.expon(a, b);
+        assertEquals(0.008, exponResult, delta);
     }
 }
