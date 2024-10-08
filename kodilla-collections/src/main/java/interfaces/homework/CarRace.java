@@ -5,13 +5,10 @@ public class CarRace {
 
         Ford ford = new Ford(0);
         doRace(ford);
-        System.out.println(ford.speed);
         Opel opel = new Opel(0);
         doRace(opel);
-        System.out.println(opel.speed);
         Renault renault = new Renault(0);
         doRace(renault);
-        System.out.println(renault.speed);
     }
 
     private static void doRace(Car car){
@@ -21,5 +18,6 @@ public class CarRace {
         car.decreaseSpeed();
         car.decreaseSpeed();
         car.getSpeed();
+        System.out.println(car.getSpeed());
     }
 }

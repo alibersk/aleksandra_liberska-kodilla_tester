@@ -2,7 +2,7 @@ package interfaces.homework;
 
 public interface Car {
 
-    int getSpeed();
+    double getSpeed();
 
     void increaseSpeed();
 

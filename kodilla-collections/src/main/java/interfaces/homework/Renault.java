@@ -1,15 +1,15 @@
 package interfaces.homework;
 
 public class Renault implements Car {
-    public double speed;
+    private double speed;
 
     public Renault(double speed){
         this.speed = speed;
     }
 
     @Override
-    public int getSpeed() {
-        return 0;
+    public double getSpeed() {
+        return speed;
     }
 
     @Override
