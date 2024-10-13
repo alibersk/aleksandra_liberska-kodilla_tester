@@ -4,7 +4,6 @@ public class CashMachine {
     int[] transactions;
     private int size = 0;
     int balance;
-    int paymentNumber;
     int paycheckNumber;
     int paymentSum;
     int paycheckSum;
@@ -14,7 +13,6 @@ public class CashMachine {
         this.size = 0;
         this.transactions = new int[0];
         this.balance = 0;
-        this.paymentNumber = 0;
         this.paycheckNumber = 0;
         this.paymentSum = 0;
         this.paycheckSum = 0;
@@ -79,6 +77,42 @@ public class CashMachine {
             }
         }
         return paycheckSum;
+    }
+
+    public double getPaymentAvg() {
+        double paymentAvg = 0;
+        int paymentSum = 0;
+        int paymentNumber = 0;
+        for (int i = 0; i < transactions.length; i++ ) {
+            if (transactions[i] > 0) {
+                paymentNumber = paymentNumber + 1;
+            }
+        }
+        for (int i = 0; i < transactions.length; i++ ) {
+            if (transactions[i] > 0) {
+                paymentSum = paymentSum + transactions[i];
+                paymentAvg = (double) paymentSum / paymentNumber;
+            }
+        }
+        return paymentAvg;
+    }
+
+    public double getPaycheckAvg() {
+        double paycheckAvg = 0;
+        int paycheckSum = 0;
+        int paycheckNumber = 0;
+        for (int i = 0; i < transactions.length; i++ ) {
+            if (transactions[i] < 0) {
+                paycheckNumber = paycheckNumber + 1;
+            }
+        }
+        for (int j = 0; j < transactions.length; j++ ) {
+            if (transactions[j] < 0) {
+                paycheckSum = paycheckSum + transactions[j];
+                paycheckAvg = (double) paycheckSum / paycheckNumber;
+        }
+    }
+        return paycheckAvg;
     }
 
 }

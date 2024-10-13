@@ -81,6 +81,22 @@ public class CashMachineTestSuite {
     }
 
     @Test
+    public void shouldHaveProperPaymentAndPaycheckAverage() {
+        CashMachine cashMachine = new CashMachine();
+        cashMachine.add(20);
+        cashMachine.add(60);
+        cashMachine.add(-50);
+        cashMachine.add(0);
+        cashMachine.add(-10);
+
+        cashMachine.getPaymentAvg();
+        cashMachine.getPaycheckAvg();
+
+        assertEquals(40, cashMachine.getPaymentAvg());
+        assertEquals(-30, cashMachine.getPaycheckAvg());
+    }
+
+    @Test
     public void shouldAddTransactionsForManyAtms() {
         CashMachine cashMachine1 = new CashMachine();
         CashMachine cashMachine2 = new CashMachine();
