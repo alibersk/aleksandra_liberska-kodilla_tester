@@ -1,4 +1,4 @@
-package interfaces;
+package com.kodilla.collections.interfaces;
 
 public class Circle implements Shape {
     private double radius;

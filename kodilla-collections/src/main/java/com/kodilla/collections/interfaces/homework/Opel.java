@@ -1,10 +1,17 @@
-package interfaces.homework;
+package com.kodilla.collections.interfaces.homework;
 
 public class Opel implements Car {
     private double speed;
+    String name;
 
     public Opel(double speed){
         this.speed = speed;
+        this.name = "Opel";
+    }
+
+    @Override
+    public String getName() {
+        return name;
     }
 
     @Override

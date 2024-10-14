@@ -1,4 +1,4 @@
-package interfaces.homework;
+package com.kodilla.collections.interfaces.homework;
 
 public class CarRace {
     public static void main(String[] args) {
@@ -12,6 +12,7 @@ public class CarRace {
     }
 
     private static void doRace(Car car){
+        System.out.println(car.getName());
         car.increaseSpeed();
         car.increaseSpeed();
         car.increaseSpeed();
