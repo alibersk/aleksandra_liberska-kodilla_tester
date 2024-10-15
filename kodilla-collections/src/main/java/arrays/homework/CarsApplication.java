@@ -21,12 +21,12 @@ public class CarsApplication {
     }
 
     public static Car drawCar() {
-        int drawnShapeKind = RANDOM.nextInt(3);
+        int drawnCarType = RANDOM.nextInt(3);
 
         double speedIncrease = getRandomSpeedIncrease();
-        if (drawnShapeKind == 0)
+        if (drawnCarType == 0)
             return new Ford(speedIncrease);
-        else if (drawnShapeKind == 1)
+        else if (drawnCarType == 1)
             return new Opel(speedIncrease);
         else
             return new Renault(speedIncrease);
