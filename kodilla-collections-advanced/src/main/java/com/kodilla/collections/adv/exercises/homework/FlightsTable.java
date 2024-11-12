@@ -3,8 +3,8 @@ package com.kodilla.collections.adv.exercises.homework;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FlightRepository implements FlightsTable {
-    public List<Flight> getFlightsTable() {
+public interface FlightsTable {
+    default List<Flight> getFlightsTable() {
         List<Flight> flights = new ArrayList<>();
         flights.add(new Flight ("Alicante", "Lublinek"));
         flights.add(new Flight ("Bergamo", "Balice"));

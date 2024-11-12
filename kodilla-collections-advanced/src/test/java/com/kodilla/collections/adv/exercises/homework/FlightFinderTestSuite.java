@@ -1,34 +1,47 @@
 package com.kodilla.collections.adv.exercises.homework;
 
-import com.kodilla.collections.adv.exercises.dictionary.EnglishWord;
-import com.kodilla.collections.adv.exercises.dictionary.PartOfSpeech;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import static java.util.Collections.emptyList;
 import static org.junit.jupiter.api.Assertions.*;
 
 class FlightFinderTestSuite {
 
+    FlightsTable repository = new FlightsTable() {
+        @Override
+        public List<Flight> getFlightsTable() {
+            return FlightsTable.super.getFlightsTable();
+        }
+    };
     @Test
     public void testFindFlightsFrom() {
         //given
-        FlightFinder flightFinder = new FlightFinder();
+        FlightsTable repository = new FlightsTable() {
+            @Override
+            public List<Flight> getFlightsTable() {
+                return List.of(
+                        new Flight("JFK", "Okęcie")
+                );
+            }
+        };
+        FlightFinder flightFinder = new FlightFinder(repository);
+        List<Flight> expected = List.of(
+                new Flight("Balice", "Bergamo"),
+                new Flight("Balice", "Malaga")
+        );
         //when
         List<Flight> result = flightFinder.findFlightsFrom("Balice");
         //then
-        assertEquals(2, result.size());
-        assertEquals("Bergamo", result.getFirst().arrival);
-        assertEquals("Malaga", result.getLast().arrival);
-        assertNotEquals("Alicante", result.getFirst().arrival);
+        assertEquals(expected, result);
 
     }
 
     @Test
     public void testFindFlightsTo() {
         //given
-        FlightFinder flightFinder = new FlightFinder();
+        FlightFinder flightFinder = new FlightFinder(repository);
         //when
         List<Flight> result = flightFinder.findFlightsTo("Pyrzyce");
         //then
@@ -40,21 +53,23 @@ class FlightFinderTestSuite {
     @Test
     public void testFindFlightsFromNonExistentAirport() {
         //given
-        FlightFinder flightFinder = new FlightFinder();
+        FlightFinder flightFinder = new FlightFinder(repository);
         //when
         List<Flight> result = flightFinder.findFlightsFrom("Luton");
         //then
-        assertEquals(0, result.size());
+        assertEquals(emptyList(), result);
 
     }
 
     @Test
     public void testFindFlightsToNonExistentAirport() {
         //given
-        FlightFinder flightFinder = new FlightFinder();
+
+        FlightFinder flightFinder = new FlightFinder(repository);
         //when
         List<Flight> result = flightFinder.findFlightsTo("Luton");
         //then
         assertEquals(0, result.size());
     }
+
 }

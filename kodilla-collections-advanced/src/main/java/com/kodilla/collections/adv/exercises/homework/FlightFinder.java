@@ -7,8 +7,8 @@ public class FlightFinder {
 
         private List<Flight> flights;
 
-        public FlightFinder() {
-            this.flights = FlightRepository.getFlightsTable();
+        public FlightFinder(FlightsTable repository) {
+            this.flights = repository.getFlightsTable();
         }
 
     public List<Flight> findFlightsFrom(String departure){
