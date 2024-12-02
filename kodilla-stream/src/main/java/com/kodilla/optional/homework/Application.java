@@ -25,12 +25,12 @@ public class Application {
 
 
         for (Student student : allStudents) {
-        Optional<Teacher> optionalTeacher = Optional.ofNullable(student.teacher);
-        String teacherName = optionalTeacher.orElse(new Teacher("<undefined>")).getName();
-            System.out.println(teacherName);
-        System.out.println("Student: " + student.name + ", " + "Teacher: " + student.teacher.name);
+            Optional<Teacher> optionalTeacher = Optional.ofNullable(student.teacher);
+            String teacherName = optionalTeacher.orElse(new Teacher("<undefined>")).getName();
+
+            System.out.println("Student: " + student.name + ", " + "Teacher: " + teacherName);
+        }
+
+
     }
-
-
-}
 }
