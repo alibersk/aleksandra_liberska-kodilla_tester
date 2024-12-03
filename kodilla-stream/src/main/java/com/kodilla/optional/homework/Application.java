@@ -12,7 +12,7 @@ public class Application {
         teachers.add(new Teacher("Maria Kowalska"));
         teachers.add(new Teacher("Janusz Wicher"));
         teachers.add(new Teacher("Ewa Tomik"));
-        teachers.add(new Teacher(null));
+        //teachers.add(new Teacher(null));
 
 
         List<Student> allStudents = new ArrayList<>();
